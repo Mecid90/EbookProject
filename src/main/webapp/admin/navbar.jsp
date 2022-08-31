@@ -3,7 +3,7 @@
 <div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3 text-success">
-            <h3><i class="fas-fa-book"></i>  Ebooks</h3>
+            <h3><i class="fa-solid fa-book"></i>  Ebooks</h3>
         </div>
         <div class="col-md-6">
             <form class="d-flex" role="search">
@@ -30,19 +30,13 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand  " href="#" ><i class="fas fa-home"></i>  Home</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active"><a class="nav-link" href="#"><i class="fas fa-book-open"></i>  Recent Book  </a></li>
-                <li class="nav-item active"><a class="nav-link" href="#"><i class="fas fa-book-open"></i>  New Book  </a></li>
-                <li class="nav-item active"><a class="nav-link" href="#"><i class="fas fa-book-open"></i>  Old Book  </a></li>
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fas fa-cog"></i>  Setting  </button>
-                <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fas fa-phone-square-alt"></i>  Contact Us  </button>
-            </form>
-
+                <li class="nav-item active">
+                    <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
+                </li>
+                </ul>
         </div>
     </div>
 </nav>

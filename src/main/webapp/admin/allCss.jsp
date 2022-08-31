@@ -19,4 +19,4 @@
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/all_components/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/style.css">

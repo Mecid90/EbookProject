@@ -7,22 +7,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ebook</title>
+    <title>Ebook: Index</title>
+    <%@include file="all_components/allCss.jsp"%>
+
     <style type="text/css">
         .back-img{
-            background: url("img/b.jpg");
-            height: 80vh;
+            background-image: url("img/b.jpg");
+            height: 50vh;
             width: 100%;
             background-repeat: no-repeat;
             background-size: cover;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <%@include file="all_components/allCss.jsp"%>
 
 </head>
 <body>
 <%@include file="all_components/navbar.jsp"%>
+
+<div class="container-fluid back-img">
+
 </div>
+
 </body>
 </html>
