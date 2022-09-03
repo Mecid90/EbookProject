@@ -18,12 +18,12 @@
                     <h4 class="text-center">Add Book</h4>
                     <c:if test="${not empty successMessage}">
                         <p class="text-center text-success">${successMessage}</p>
-                        <c:remove var="successMessage" scope="session"/>
+                        <c:remove var="successMessage"/>
                     </c:if>
 
                     <c:if test="${not empty failedMessage}">
                         <p class="text-center text-danger">${failedMessage}</p>
-                        <c:remove var="failedMessage" scope="session"/>
+                        <c:remove var="failedMessage"/>
                     </c:if>
 
 

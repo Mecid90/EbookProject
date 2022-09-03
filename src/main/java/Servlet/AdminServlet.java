@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 @WebServlet("/add_books")
-@MultipartConfig
+
 public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,29 +35,29 @@ public class AdminServlet extends HttpServlet {
 
             BookDaoImpl dao = new BookDaoImpl(DbConnect.getConnect());
 
-            String path = getServletContext().getRealPath("") + "book";
+//            String path = getServletContext().getRealPath("") + "book";
+//
+//            System.out.println(path);
 
-            System.out.println(path);
 
+            boolean f = dao.addBooks(bookDtls);
 
-//            boolean f = dao.addBooks(bookDtls);
-//
-//            HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
 
-//            if(f){
-//
-//                String path = getServletContext().getRealPath("") + "book";
-//
-//                File file = new File(path);
-//
-//                part.write(path + File.separator + fileName);
-//
-//                session.setAttribute("successMessage","Book added successfully");
-//                response.sendRedirect("admin/add_books.jsp");
-//            }else{
-//                session.setAttribute("failedMessage","Something went wrong");
-//                response.sendRedirect("admin/add_books.jsp");
-//            }
+            if(f){
+
+                String path = getServletContext().getRealPath("") + "book";
+
+                File file = new File(path);
+
+                part.write(path + File.separator + fileName);
+
+                session.setAttribute("successMessage","Book added successfully");
+                response.sendRedirect("admin/add_books.jsp");
+            }else{
+                session.setAttribute("failedMessage","Something went wrong");
+                response.sendRedirect("admin/add_books.jsp");
+            }
 //
         }catch (Exception e){
             e.printStackTrace();
