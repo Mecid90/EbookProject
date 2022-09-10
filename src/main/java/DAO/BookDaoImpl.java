@@ -84,4 +84,64 @@ public class BookDaoImpl implements BookDao{
 
         return bookDtls;
     }
+
+    @Override
+    public BookDtls getBookById(int id) throws SQLException {
+
+        BookDtls b = null;
+
+        try{
+
+            String sql="select from book_details where bookId=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            while(resultSet.next()){
+
+                int iden = resultSet.getInt(1);
+                String bookName = resultSet.getString(2);
+                String author = resultSet.getString(3);
+                String price = resultSet.getString(4);
+                String category = resultSet.getString(5);
+                String status = resultSet.getString(6);
+                String photo = resultSet.getString(7);
+                String email = resultSet.getString(8);
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return b;
+    }
+
+    @Override
+    public boolean updateEditBooks(BookDtls b) {
+
+        boolean f =false;
+
+        try{
+
+            String sql = "update book_details set bookname=?,author=?,price=?,status=?, where bookId=?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,b.getbookName());
+            ps.setString(2,b.getAuthor());
+            ps.setString(3,b.getPrice());
+            ps.setString(4,b.getStatus());
+            ps.setInt(5,b.getId());
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
 }

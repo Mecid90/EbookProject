@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 @WebServlet("/add_books")
-
+@MultipartConfig
 public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,6 +32,8 @@ public class AdminServlet extends HttpServlet {
             String fileName = part.getSubmittedFileName();
 
             BookDtls bookDtls = new BookDtls(name,author,price,categories,status,fileName,"admin");
+
+
 
             BookDaoImpl dao = new BookDaoImpl(DbConnect.getConnect());
 
@@ -54,7 +56,9 @@ public class AdminServlet extends HttpServlet {
 
                 session.setAttribute("successMessage","Book added successfully");
                 response.sendRedirect("admin/add_books.jsp");
+
             }else{
+
                 session.setAttribute("failedMessage","Something went wrong");
                 response.sendRedirect("admin/add_books.jsp");
             }
