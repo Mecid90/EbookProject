@@ -43,7 +43,7 @@ public class BookDtls {
         this.id = id;
     }
 
-    public String getbookName() {
+    public String getBookName() {
         return bookName;
     }
 
@@ -99,14 +99,13 @@ public class BookDtls {
         this.email = email;
     }
 
-
     @Override
     public String toString() {
         return "BookDtls{" +
-                "id='" + id + '\'' +
-                ", name='" + bookName + '\'' +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
                 ", author='" + author + '\'' +
-                ", price=" + price +
+                ", price='" + price + '\'' +
                 ", bookCategory='" + bookCategory + '\'' +
                 ", status='" + status + '\'' +
                 ", photo='" + photo + '\'' +

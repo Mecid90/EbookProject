@@ -9,6 +9,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Admin: All Books</title>
@@ -18,6 +20,16 @@
 <%@include file="navbar.jsp"%>
 
 <h3 class="text-center"> Hello Admin </h3>
+
+<c:if test="${not empty successMessage}">
+    <p class="text-center text-success">${successMessage}</p>
+    <c:remove var="successMessage"/>
+</c:if>
+
+<c:if test="${not empty failedMessage}">
+    <p class="text-center text-danger">${failedMessage}</p>
+    <c:remove var="failedMessage"/>
+</c:if>
 
 <table class="table table-striped">
     <thead class="bg-primary text-white">
@@ -43,14 +55,14 @@
     <tr>
         <td> <%= b.getId()%> </td>
         <td><img src="../book/<%= b.getPhoto()%>" style="width: 50px;height: 50px;"> </td>
-        <td><%= b.getbookName()%></td>
+        <td><%= b.getBookName()%></td>
         <td><%= b.getAuthor()%></td>
         <td><%= b.getPrice()%></td>
         <td><%= b.getBookCategory()%></td>
         <td><%= b.getStatus()%></td>
         <td>
             <a href="edit_books.jsp?id=<%=b.getId()%> " class="btn btn-sm btn-primary">Edit</a>
-            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+            <a href="../delete?id=<%=b.getId()%>" class="btn btn-sm btn-danger">Delete</a>
         </td>
     </tr>
 

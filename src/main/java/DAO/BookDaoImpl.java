@@ -3,6 +3,7 @@ package DAO;
 import entity.BookDtls;
 
 
+import java.awt.print.Book;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,9 +26,9 @@ public class BookDaoImpl implements BookDao{
 
         try{
 
-            String sql="insert into book_details(bookName,author,price,bookCategory,status,photo,email) values (?,?,?,?,?,?,?)";
+            String sql="insert into book_details(bookname,author,price,bookCategory,status,photo,email) values (?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, bookDtls.getbookName());
+            ps.setString(1, bookDtls.getBookName());
             ps.setString(2, bookDtls.getAuthor());
             ps.setString(3, bookDtls.getPrice());
             ps.setString(4,bookDtls.getBookCategory());
@@ -92,15 +93,19 @@ public class BookDaoImpl implements BookDao{
 
         try{
 
-            String sql="select from book_details where bookId=?";
+
+            String sql="select * from book_details where bookId=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,id);
 
             ResultSet resultSet = ps.executeQuery();
 
+
+
             while(resultSet.next()){
 
-                int iden = resultSet.getInt(1);
+
+                id = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -108,6 +113,9 @@ public class BookDaoImpl implements BookDao{
                 String status = resultSet.getString(6);
                 String photo = resultSet.getString(7);
                 String email = resultSet.getString(8);
+
+                b = new BookDtls(id,bookName,author,price,category,status,photo,email);
+
 
             }
 
@@ -126,21 +134,55 @@ public class BookDaoImpl implements BookDao{
 
         try{
 
-            String sql = "update book_details set bookname=?,author=?,price=?,status=?, where bookId=?";
+            String sql = "update book_details set bookname=?,author=?,price=?,status=? where bookId=?";
 
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,b.getbookName());
+            ps.setString(1,b.getBookName());
             ps.setString(2,b.getAuthor());
             ps.setString(3,b.getPrice());
             ps.setString(4,b.getStatus());
             ps.setInt(5,b.getId());
+
+            int i = ps.executeUpdate();
+
+            if(i==1){
+                f=true;
+            }
 
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        return false;
+        return f;
+    }
+
+    @Override
+    public boolean deleteBooks(int id) throws SQLException {
+
+        boolean f = false;
+
+        try{
+
+            String sql = "delete from book_details where bookId=?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            int i = ps.executeUpdate();
+
+            if (i==1){
+                f=true;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+
+        return f;
     }
 
 
