@@ -19,6 +19,9 @@ a:hover {
 </head>
 <body>
 <%@ include file="navbar.jsp" %>
+<c:if test="${empty userobj}">
+    <c:redirect url="../login.jsp" />
+</c:if>
     <div class="container p-4">
         <div class="row text-center">
             <h4> Hello Admin </h4>
@@ -59,7 +62,7 @@ a:hover {
                     </div>
 
                             <div class="col-md-3">
-                                <a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <div class="card">
                                     <div class="card-body text-center">
                                         <i class="fas fa-sign-out-alt fa-3x text-primary"></i><br>
@@ -72,6 +75,27 @@ a:hover {
 
                         </div>
                     </div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" >
+                <div class="text-center">
+                    <h4>Do you want to logout?</h4>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-primary" href="../logout">Logout</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

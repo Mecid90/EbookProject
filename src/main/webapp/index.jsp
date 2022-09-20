@@ -25,7 +25,28 @@
 <%@include file="all_components/navbar.jsp"%>
 
 <div class="container-fluid back-img">
+    <h2 class="text-center text-danger">EBook Management System</h2>
+</div>
 
+<div class="container-fluid">
+    <h3 class="text-center">Recent Book</h3>
+    <div class="row">
+<div class="col-md-3">
+    <div class="card">
+    <div class="card-body text-center">
+        <img alt="" src="book/JavaBook.jpg" style="width: 200px" class="img-thumbnail">
+        <p>Java Programming</p>
+        <p>Hamilton</p>
+        <p>Categories: New</p>
+        <div class="row">
+            <a href="" class="btn btn-danger btn-sm ml-lg-2">Add Card</a>
+            <a href="" class="btn btn-success btn-sm ml-lg-1">View Details</a>
+            <a href="" class="btn btn-success btn-sm ml-lg-1">299</a>
+        </div>
+    </div>
+    </div>
+</div>
+    </div>
 </div>
 
 </body>
