@@ -84,7 +84,7 @@
 
     </div>
     <div class="text-center p-2 mt-1">
-        <a href="" class="btn btn-danger btn-sm">View All</a>
+        <a href="admin/all_recent_book.jsp" class="btn btn-danger btn-sm">View All</a>
     </div>
 </div>
 <!-- End Recent Book -->
@@ -125,7 +125,7 @@
 
     </div>
     <div class="text-center mt-1">
-        <a href="" class="btn btn-danger btn-sm">View All</a>
+        <a href="admin/all_new_book.jsp" class="btn btn-danger btn-sm">View All</a>
     </div>
 </div>
 <!-- End New Book -->
@@ -170,7 +170,7 @@
 
 
     <div class="text-center p-2 mt-1">
-        <a href="" class="btn btn-danger btn-sm">View All</a>
+        <a href="admin/all_old_book.jsp" class="btn btn-danger btn-sm">View All</a>
     </div>
 </div>
 <!-- End Old Book -->

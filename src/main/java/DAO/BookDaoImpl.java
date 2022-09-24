@@ -293,4 +293,107 @@ public class BookDaoImpl implements BookDao{
         return bookDtls;
     }
 
+    @Override
+    public List<BookDtls> getAllNewBook() throws SQLException {
+        List<BookDtls> bookDtls = new ArrayList<>();
+
+        try {
+            String sql = "select * from book_details where bookCategory=? and status=? order by bookId DESC ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "New");
+            ps.setString(2, "Active");
+            ResultSet resultSet = ps.executeQuery();
+
+
+            while (resultSet.next()){
+
+                String bookName = resultSet.getString(2);
+                String author = resultSet.getString(3);
+                String price = resultSet.getString(4);
+                String category = resultSet.getString(5);
+                String status = resultSet.getString(6);
+                String photo = resultSet.getString(7);
+                String email = resultSet.getString(8);
+
+                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+
+                bookDtls.add(bookDtls1);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bookDtls;
+    }
+
+    @Override
+    public List<BookDtls> getAllRecentBook() throws SQLException {
+        List<BookDtls> bookDtls = new ArrayList<>();
+
+        try {
+            String sql = "select * from book_details where status=? order by bookId DESC ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "Active");
+            ResultSet resultSet = ps.executeQuery();
+            ;
+
+            while (resultSet.next()){
+
+                String bookName = resultSet.getString(2);
+                String author = resultSet.getString(3);
+                String price = resultSet.getString(4);
+                String category = resultSet.getString(5);
+                String status = resultSet.getString(6);
+                String photo = resultSet.getString(7);
+                String email = resultSet.getString(8);
+
+                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+
+                bookDtls.add(bookDtls1);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bookDtls;
+    }
+
+    @Override
+    public List<BookDtls> getAllOldBook() throws SQLException {
+        List<BookDtls> bookDtls = new ArrayList<>();
+
+        try {
+            String sql = "select * from book_details where bookCategory=? and status=? order by bookId DESC ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "Old");
+            ps.setString(2, "Active");
+            ResultSet resultSet = ps.executeQuery();
+
+
+            while (resultSet.next()){
+
+                String bookName = resultSet.getString(2);
+                String author = resultSet.getString(3);
+                String price = resultSet.getString(4);
+                String category = resultSet.getString(5);
+                String status = resultSet.getString(6);
+                String photo = resultSet.getString(7);
+                String email = resultSet.getString(8);
+
+                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+
+                bookDtls.add(bookDtls1);
+
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bookDtls;
+    }
+
 }

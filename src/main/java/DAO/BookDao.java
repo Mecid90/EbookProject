@@ -22,4 +22,11 @@ public interface BookDao {
     public List<BookDtls> getRecentBook() throws SQLException;
 
     public List<BookDtls> getOldBook() throws SQLException;
+
+    public List<BookDtls> getAllNewBook() throws SQLException;
+
+    public List<BookDtls> getAllRecentBook() throws SQLException;
+
+    public List<BookDtls> getAllOldBook() throws SQLException;
+
 }
