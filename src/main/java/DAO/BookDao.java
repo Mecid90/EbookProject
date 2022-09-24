@@ -16,4 +16,10 @@ public interface BookDao {
     boolean updateEditBooks(BookDtls b);
 
     boolean deleteBooks(int id) throws SQLException;
+
+    public List<BookDtls> getNewBook() throws SQLException;
+
+    public List<BookDtls> getRecentBook() throws SQLException;
+
+    public List<BookDtls> getOldBook() throws SQLException;
 }
