@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>All Recent Books</title>
-    <%@include file="allCss.jsp"%>
+    <%@include file="admin/allCss.jsp"%>
     <style type="text/css">
         .crd-ho:hover {
             background-color: #fcf7f7;
@@ -32,7 +32,7 @@
         <div class="col-md-3">
             <div class="card crd-ho mt-2">
                 <div class="card-body text-center">
-                    <img alt="" src="../book/<%=b.getPhoto()%>" style="width: 100px; height: 150px" class="img-thumbnail">
+                    <img alt="" src="book/<%=b.getPhoto()%>" style="width: 100px; height: 150px" class="img-thumbnail">
                     <p><%=b.getBookName()%></p>
                     <p><%=b.getAuthor()%></p>
                     <p>Categories:<%=b.getBookCategory()%></p>

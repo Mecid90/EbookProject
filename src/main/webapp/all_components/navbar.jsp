@@ -38,12 +38,12 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand  " href="index.jsp" ><i class="fas fa-home"></i>  Home</a>
+        <a class="navbar-brand" href="index.jsp" ><i class="fas fa-home"></i>  Home</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active"><a class="nav-link" href="admin/all_recent_book.jsp"><i class="fas fa-book-open"></i>  Recent Book  </a></li>
-                <li class="nav-item active"><a class="nav-link" href="admin/all_new_book.jsp"><i class="fas fa-book-open"></i>  New Book  </a></li>
-                <li class="nav-item active"><a class="nav-link" href="admin/all_old_book.jsp"><i class="fas fa-book-open"></i>  Old Book  </a></li>
+                <li class="nav-item active"><a class="nav-link" href="all_recent_book.jsp"><i class="fas fa-book-open"></i>  Recent Book  </a></li>
+                <li class="nav-item active"><a class="nav-link" href="all_new_book.jsp"><i class="fas fa-book-open"></i>  New Book  </a></li>
+                <li class="nav-item active"><a class="nav-link" href="all_old_book.jsp"><i class="fas fa-book-open"></i>  Old Book  </a></li>
             </ul>
 
             <form class="form-inline my-2 my-lg-0">
