@@ -191,15 +191,16 @@ public class BookDaoImpl implements BookDao{
         List<BookDtls> bookDtls = new ArrayList<>();
 
         try {
-            String sql = "select * from book_details where bookCategory=? and status=? order by bookId DESC ";
+            String sql = "select * from book_details where bookCategory=? and status=? order by bookId=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "New");
             ps.setString(2, "Active");
+            ps.setString(3,"bid");
             ResultSet resultSet = ps.executeQuery();
             int i = 1;
 
             while (resultSet.next() && i<=4){
-
+                int bookId = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -208,7 +209,7 @@ public class BookDaoImpl implements BookDao{
                 String photo = resultSet.getString(7);
                 String email = resultSet.getString(8);
 
-                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+                BookDtls bookDtls1 = new BookDtls(bookId,bookName,author,price,category,status,photo,email);
 
                 bookDtls.add(bookDtls1);
 
@@ -227,14 +228,15 @@ public class BookDaoImpl implements BookDao{
         List<BookDtls> bookDtls = new ArrayList<>();
 
         try {
-            String sql = "select * from book_details where status=? order by bookId DESC ";
+            String sql = "select * from book_details where status=? order by bookId=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "Active");
+            ps.setString(2,"bid");
             ResultSet resultSet = ps.executeQuery();
             int i = 1;
 
             while (resultSet.next() && i<=4){
-
+                int bookId = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -243,7 +245,7 @@ public class BookDaoImpl implements BookDao{
                 String photo = resultSet.getString(7);
                 String email = resultSet.getString(8);
 
-                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+                BookDtls bookDtls1 = new BookDtls(bookId,bookName,author,price,category,status,photo,email);
 
                 bookDtls.add(bookDtls1);
 
@@ -262,15 +264,17 @@ public class BookDaoImpl implements BookDao{
         List<BookDtls> bookDtls = new ArrayList<>();
 
         try {
-            String sql = "select * from book_details where bookCategory=? and status=? order by bookId DESC ";
+            String sql = "select * from book_details where bookCategory=? and status=? order by bookId=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "Old");
             ps.setString(2, "Active");
+            ps.setString(3,"bid");
             ResultSet resultSet = ps.executeQuery();
             int i = 1;
 
             while (resultSet.next() && i<=4){
 
+                int bookId = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -279,7 +283,7 @@ public class BookDaoImpl implements BookDao{
                 String photo = resultSet.getString(7);
                 String email = resultSet.getString(8);
 
-                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+                BookDtls bookDtls1 = new BookDtls(bookId,bookName,author,price,category,status,photo,email);
 
                 bookDtls.add(bookDtls1);
 
@@ -298,15 +302,16 @@ public class BookDaoImpl implements BookDao{
         List<BookDtls> bookDtls = new ArrayList<>();
 
         try {
-            String sql = "select * from book_details where bookCategory=? and status=? order by bookId DESC ";
+            String sql = "select * from book_details where bookCategory=? and status=? order by bookId=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "New");
             ps.setString(2, "Active");
+            ps.setString(3,"bid");
             ResultSet resultSet = ps.executeQuery();
 
 
             while (resultSet.next()){
-
+                int bookId = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -315,7 +320,7 @@ public class BookDaoImpl implements BookDao{
                 String photo = resultSet.getString(7);
                 String email = resultSet.getString(8);
 
-                BookDtls bookDtls1 = new BookDtls(bookName,author,price,category,status,photo,email);
+                BookDtls bookDtls1 = new BookDtls(bookId,bookName,author,price,category,status,photo,email);
 
                 bookDtls.add(bookDtls1);
             }

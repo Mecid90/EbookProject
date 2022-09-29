@@ -3,6 +3,7 @@
 <%@ page import="DAO.BookDaoImpl" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.BookDtls" %>
+<%@ page import="entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>
@@ -31,6 +32,10 @@
 <body style="background-color: #f7f7f7;">
 <%@include file="all_components/navbar.jsp"%>
 
+<%
+    User u = (User)session.getAttribute("userobj");
+%>
+
 <div class="container-fluid back-img">
     <h2 class="text-center text-danger">EBook Management System</h2>
 </div>
@@ -57,7 +62,7 @@
                     <p>Categories: <%=b.getBookCategory()%></p>
                             <div class="row">
                                  <div class="col-ml-2">
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
                             <a href="" class="btn btn-success btn-sm ml-lg-1"><%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i> </a>
                                  </div>
                              </div>
@@ -66,11 +71,21 @@
                         %>
                     <p>Categories: <%=b.getBookCategory()%></p>
                     <div class="row">
+
                         <div class="col-ml-2">
-                            <a href="" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"><%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i> </a>
+                            <%
+                                if(u==null){%>
+                            <a href="login.jsp" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
+                            <%
+                            }else{%>
+                            <a href="cart?bid=<%=b.getId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
+                            <%
+                                }
+                            %>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i></a>
                         </div>
+
                     </div>
                     <%
                         }
@@ -111,8 +126,16 @@
                     <p>Categories:<%=b.getBookCategory()%></p>
                     <div class="row">
                         <div class="col-ml-2">
-                            <a href="" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                        <%
+                            if(u==null){%>
+                        <a href="login.jsp" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
+                        <%
+                            }else{%>
+                        <a href="cart?bid=<%=b.getId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-lg-2"> <i class="fas fa-cart-plus"></i> Add Cart</a>
+                        <%
+                        }
+                        %>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
                             <a href="" class="btn btn-success btn-sm ml-lg-1"> <%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i></a>
                         </div>
                     </div>
@@ -153,7 +176,7 @@
 
                     <div class="row">
                         <div class="col-ml-2">
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
                             <a href="" class="btn btn-success btn-sm ml-lg-1"> <%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i></a>
                         </div>
                     </div>
