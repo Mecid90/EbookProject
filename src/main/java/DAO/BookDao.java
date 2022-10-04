@@ -2,6 +2,7 @@ package DAO;
 
 import entity.BookDtls;
 
+import java.awt.print.Book;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,5 +29,9 @@ public interface BookDao {
     public List<BookDtls> getAllRecentBook() throws SQLException;
 
     public List<BookDtls> getAllOldBook() throws SQLException;
+
+    public List<BookDtls> getBookByOld(String email, String cate) throws SQLException;
+
+
 
 }

@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: asus
-  Date: 03.10.2022
-  Time: 16:01
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Sell Book</title>
@@ -16,6 +12,10 @@
 
 <%@include file="all_components/navbar.jsp"%>
 
+<c:if test="${empty userobj}">
+    <c:redirect url="login.jsp"/>
+</c:if>
+
 
 <div class="container">
         <div class="row p-2">
@@ -23,7 +23,21 @@
                  <div class="card">
                      <div class="card-body">
                          <h5 class="text-center text-primary p-1"> Sell Old Book </h5>
-                         <form action="" method="post" enctype="multipart/form-data">
+
+                         <c:if test="${not empty successMessage}">
+                             <p class="text-center text-success">${successMessage}</p>
+                             <c:remove var="successMessage"/>
+                         </c:if>
+
+                         <c:if test="${not empty failedMessage}">
+                             <p class="text-center text-danger">${failedMessage}</p>
+                             <c:remove var="failedMessage"/>
+                         </c:if>
+
+                         <form action="add_old_book" method="post" enctype="multipart/form-data">
+
+                             <input type="hidden" value="${userobj.email}" name="user">
+
                              <div class="mb-3">
                                  <label for="InputFullName" class="form-label">Book Name</label>
                                  <input type="text" class="form-control" id="InputFullName" aria-describedby="emailHelp" required="required" name="BookName">

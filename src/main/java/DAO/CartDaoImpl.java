@@ -87,15 +87,16 @@ public class CartDaoImpl implements CartDao {
     }
 
     @Override
-    public boolean deleteBook(int bid,int uid) throws SQLException {
+    public boolean deleteBook(int bid,int uid,int cid) throws SQLException {
 
         boolean f = false;
 
         try{
-            String sql="delete from cart where bid=? and uid=?";
+            String sql="delete from cart where bid=? and uid=? and cid=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,bid);
             ps.setInt(2,uid);
+            ps.setInt(3,cid);
 
             int i = ps.executeUpdate();
 

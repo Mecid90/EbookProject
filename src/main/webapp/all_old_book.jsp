@@ -1,14 +1,10 @@
 <%@ page import="DAO.BookDaoImpl" %>
 <%@ page import="DbConfig.DbConnect" %>
 <%@ page import="entity.BookDtls" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: asus
-  Date: 24.09.2022
-  Time: 15:06
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>All Recent Books</title>
@@ -39,7 +35,7 @@
 
                     <div class="row">
                         <div class="col-ml-2">
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
                             <a href="" class="btn btn-success btn-sm ml-lg-1"> <%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i></a>
                         </div>
                     </div>

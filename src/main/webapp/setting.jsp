@@ -1,6 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 
 <html>
 <head>
@@ -20,8 +21,12 @@
 <body style="background-color: #f7f7f7;">
 <%@include file="all_components/navbar.jsp"%>
 
+<c:if test="${empty userobj}">
+    <c:redirect url="login.jsp"/>
+</c:if>
+
 <div class="container">
-    <h3 class="text-center"> Hello Majid </h3>
+    <h3 class="text-center"> Hello,${userobj.name} </h3>
     <div class="row p-4">
         <div class="col-md-6">
             <a href="sell_book.jsp">
@@ -35,6 +40,19 @@
             </div>
             </a>
             </div>
+
+        <div class="col-md-4">
+            <a href="old_book.jsp">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-center text-primary">
+                            <i class="fa-solid fa-book-open fa-3x"></i>
+                        </div>
+                        <h3> Old Book </h3>
+                    </div>
+                </div>
+            </a>
+        </div>
 
         <div class="col-md-6">
             <a href="edit_book.jsp">
@@ -64,7 +82,7 @@
         </div>
 
         <div class="col-md-4 mt-3">
-            <a href="">
+            <a href="order.jsp">
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="text-center text-danger">
@@ -78,7 +96,7 @@
         </div>
 
         <div class="col-md-4 mt-3">
-            <a href="">
+            <a href="helpline.jsp">
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="text-center text-primary">

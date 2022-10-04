@@ -12,5 +12,5 @@ public interface CartDao {
 
     public List<Cart> getBookByUser(int userId);
 
-    boolean deleteBook(int bid,int uid) throws SQLException;
+    boolean deleteBook(int bid,int uid,int cid) throws SQLException;
 }
