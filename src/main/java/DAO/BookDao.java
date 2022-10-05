@@ -32,6 +32,8 @@ public interface BookDao {
 
     public List<BookDtls> getBookByOld(String email, String cate) throws SQLException;
 
+    boolean deleteOldBook(String email, String cate,int id) throws SQLException;
+
 
 
 }

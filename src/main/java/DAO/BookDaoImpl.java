@@ -410,8 +410,8 @@ public class BookDaoImpl implements BookDao {
 
             String sql = "select * from book_details where bookCategory=? and email=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,email);
-            ps.setString(2,cate);
+            ps.setString(1,cate);
+            ps.setString(2,email);
             ResultSet resultSet = ps.executeQuery();
 
             while(resultSet.next()){
@@ -432,6 +432,33 @@ public class BookDaoImpl implements BookDao {
             e.printStackTrace();
         }
             return list;
+    }
+
+    @Override
+    public boolean deleteOldBook(String email, String cate,int id) throws SQLException {
+
+        boolean f = false;
+
+        try{
+            String sql = "delete from book_details where email=? and bookCategory=? and bookId=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,email);
+            ps.setString(2,cate);
+            ps.setInt(3, id);
+            int i = ps.executeUpdate();
+
+            if (i==1){
+                f=true;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+        return f;
+
     }
 
 }

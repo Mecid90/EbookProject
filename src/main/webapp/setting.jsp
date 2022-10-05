@@ -28,7 +28,7 @@
 <div class="container">
     <h3 class="text-center"> Hello,${userobj.name} </h3>
     <div class="row p-4">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="sell_book.jsp">
             <div class="card">
                 <div class="card-body text-center">
@@ -54,7 +54,7 @@
             </a>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="edit_book.jsp">
                 <div class="card">
                     <div class="card-body text-center">
