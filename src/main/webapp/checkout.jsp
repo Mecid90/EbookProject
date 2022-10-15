@@ -32,7 +32,7 @@
 </c:if>
 
 <c:if test="${not empty failedMessage}">
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger text-center" role="alert">
             ${failedMessage}
     </div>
     <c:remove var="failedMessage" scope="session"/>
@@ -90,49 +90,50 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="text-center text-success"> Your Details For Order </h3>
-                    <form class="row g-3">
+                    <form class="row g-3" action="order" method="post">
+                        <input type="hidden" value="${userobj.id}" name="id">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" value="<%=u.getName()%>" readonly="readonly">
+                            <input type="text" class="form-control" id="inputEmail4" value="${userobj.name}" name="username">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" value="<%=u.getEmail()%>" readonly="readonly">
+                            <input type="email" class="form-control" id="inputPassword4" value="${userobj.email}" name="email">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="inputEmail4" value="<%=u.getPhone()%>">
+                            <input type="number" class="form-control" id="inputEmail4" value="${userobj.phone}" name="phone">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Adress</label>
-                            <input type="text" class="form-control" id="inputPassword4">
+                            <input type="text" class="form-control" id="inputPassword4" name="address">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Landmark</label>
-                            <input type="text" class="form-control" id="inputEmail4">
+                            <input type="text" class="form-control" id="inputEmail4" name="landmark">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputPassword4">
+                            <input type="text" class="form-control" id="inputPassword4" name="city">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">State</label>
-                            <input type="text" class="form-control" id="inputEmail4">
+                            <input type="text" class="form-control" id="inputEmail4" name="state">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Pin code</label>
-                            <input type="text" class="form-control" id="inputPassword4">
+                            <input type="text" class="form-control" id="inputPassword4" name="pincode">
                         </div>
 
 
                         <div class="form-group">
                             <label>Payment Type</label>
-                            <select class="form-control">
-                                <option>--Select--</option>
-                                <option>Cash On Delivery</option>
+                            <select class="form-control" name="paymentType">
+                                <option value="noselect">--Select--</option>
+                                <option value="COD">Cash On Delivery</option>
                             </select>
                         </div>
 

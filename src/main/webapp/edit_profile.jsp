@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: asus
-  Date: 03.10.2022
-  Time: 17:25
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Edit Book</title>
@@ -21,20 +17,33 @@
         <div class="col-md-4 offset-md-4">
             <div class="card">
                <div class="card-body">
-                   <form action="" method="post">
+
+                   <h4 class="text-center text-primary"> Edit Profile </h4>
+
+                   <c:if test="${not empty failedMessage}">
+                       <h5 class="text-center text-danger">${  failedMessage}</h5>
+                       <c:remove var="failedMessage" scope="session"/>
+                   </c:if>
+                   <c:if test="${not empty successMessage}">
+                       <h5 class="text-center text-success">${  successMessage}</h5>
+                       <c:remove var="successMessage" scope="session"/>
+                   </c:if>
+
+                   <form action="update_profile" method="post">
+                       <input type="hidden" value="${userobj.id}" name="id">
                        <div class="mb-3">
                            <label for="InputFullName" class="form-label">Enter Full Name</label>
-                           <input type="text" class="form-control" id="InputFullName" aria-describedby="emailHelp" required="required" name="fname">
+                           <input type="text" class="form-control" id="InputFullName" aria-describedby="emailHelp" required="required" name="fname" value="${userobj.name}">
 
                        </div>
                        <div class="mb-3">
                            <label for="InputEmail" class="form-label">Email address</label>
-                           <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required="required" name="email">
+                           <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required="required" name="email" value="${userobj.email}">
                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                        </div>
                        <div class="mb-3">
                            <label for="InputNumber" class="form-label">Phone Number</label>
-                           <input type="number" class="form-control" id="InputNumber" aria-describedby="emailHelp" required="required" name="phone">
+                           <input type="number" class="form-control" id="InputNumber" aria-describedby="emailHelp" required="required" name="phone" value="${userobj.phone}">
 
                        </div>
                        <div class="mb-3">

@@ -16,7 +16,7 @@
 <%@include file="all_components/navbar.jsp"%>
 
 <c:if test="${not empty successMessage}">
-    <p class = "text-center text-success">${successMessage}</p>
+    <div class="alert alert-success text-center">${successMessage}</div>
     <c:remove var="successMessage"/>
 </c:if>
 

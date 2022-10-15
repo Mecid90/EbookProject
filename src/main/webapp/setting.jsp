@@ -55,33 +55,21 @@
         </div>
 
         <div class="col-md-4">
-            <a href="edit_book.jsp">
+            <a href="edit_profile.jsp">
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="text-center text-primary">
                             <i class="fa-solid fa-pen-to-square fa-3x"></i>
                         </div>
-                        <h3> Login & Security (Edit Profile) </h3>
+                        <h3> Edit Profile </h3>
                     </div>
                 </div>
             </a>
         </div>
 
-        <div class="col-md-4 mt-3">
-            <a href="user_address.jsp">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <div class="text-center text-warning">
-                            <i class="fa-solid fa-location-pin fa-3x"></i>
-                        </div>
-                        <h3> Your Address </h3>
-                        <p>Edit Address</p>
-                    </div>
-                </div>
-            </a>
-        </div>
 
-        <div class="col-md-4 mt-3">
+
+        <div class="col-md-6 mt-3">
             <a href="order.jsp">
                 <div class="card">
                     <div class="card-body text-center">
@@ -95,7 +83,7 @@
             </a>
         </div>
 
-        <div class="col-md-4 mt-3">
+        <div class="col-md-6 mt-3">
             <a href="helpline.jsp">
                 <div class="card">
                     <div class="card-body text-center">

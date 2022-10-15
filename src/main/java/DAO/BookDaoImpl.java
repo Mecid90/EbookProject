@@ -415,6 +415,7 @@ public class BookDaoImpl implements BookDao {
             ResultSet resultSet = ps.executeQuery();
 
             while(resultSet.next()){
+                int id = resultSet.getInt(1);
                 String bookName = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 String price = resultSet.getString(4);
@@ -423,7 +424,7 @@ public class BookDaoImpl implements BookDao {
                 String photo = resultSet.getString(7);
                 email = resultSet.getString(8);
 
-                BookDtls bookDtls = new BookDtls(bookName,author,price,cate,status,photo,email);
+                BookDtls bookDtls = new BookDtls(id,bookName,author,price,cate,status,photo,email);
 
                 list.add(bookDtls);
             }
@@ -435,7 +436,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public boolean deleteOldBook(String email, String cate,int id) throws SQLException {
+    public boolean deleteOldBook(String email, String cate,int id) {
 
         boolean f = false;
 
@@ -444,7 +445,7 @@ public class BookDaoImpl implements BookDao {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,email);
             ps.setString(2,cate);
-            ps.setInt(3, id);
+            ps.setString(3, String.valueOf(id));
             int i = ps.executeUpdate();
 
             if (i==1){

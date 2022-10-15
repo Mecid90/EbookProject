@@ -77,4 +77,50 @@ public class UserDaoImpl implements UserDao {
         return us;
 
     }
+
+    @Override
+    public boolean checkPassword(int id,String ps) {
+        boolean f = false;
+
+        try{
+
+            String sql = "select * from user where id=? and password=?";
+            PreparedStatement ps1 = conn.prepareStatement(sql);
+            ps1.setInt(1,id);
+            ps1.setString(2,ps);
+            ResultSet rs=ps1.executeQuery();
+
+            while (rs.next()){
+                f=true;
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return f;
+    }
+
+    @Override
+    public boolean updateProfile(User us) {
+        boolean f =false;
+        try{
+            String sql = "update user set name=?,email=?,phone=? where id=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1,us.getName());
+            pst.setString(2,us.getEmail());
+            pst.setString(3,us.getPhone());
+            pst.setInt(4,us.getId());
+
+            int i = pst.executeUpdate();
+            if (i==1){
+                f=true;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return f;
+    }
 }
