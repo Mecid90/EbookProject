@@ -12,4 +12,6 @@ public interface UserDao {
 
     public boolean updateProfile(User us);
 
+    public boolean checkUser(String em);
+
 }

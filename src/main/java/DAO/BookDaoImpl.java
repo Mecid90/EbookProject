@@ -462,4 +462,39 @@ public class BookDaoImpl implements BookDao {
 
     }
 
+    @Override
+    public List<BookDtls> getBookBySearch(String ch) {
+        List<BookDtls> list = new ArrayList<>();
+
+        try {
+
+            String sql = "select * from book_details where bookname like ? or author like ? or bookCategory like ? and status=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,"%"+ch+"%");
+            ps.setString(2,"%"+ch+"%");
+            ps.setString(3,"%"+ch+"%");
+            ps.setString(4,"Active");
+            ResultSet resultSet = ps.executeQuery();
+
+            while(resultSet.next()){
+                int id = resultSet.getInt(1);
+                String bookName = resultSet.getString(2);
+                String author = resultSet.getString(3);
+                String price = resultSet.getString(4);
+                String cate = resultSet.getString(5);
+                String status = resultSet.getString(6);
+                String photo = resultSet.getString(7);
+                String email = resultSet.getString(8);
+
+                BookDtls bookDtls = new BookDtls(id,bookName,author,price,cate,status,photo,email);
+
+                list.add(bookDtls);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }

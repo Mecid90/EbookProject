@@ -123,7 +123,7 @@
                         <%
                             }
                         %>
-                            <a href="" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
+                            <a href="view_books.jsp?bid=<%=b.getId()%>" class="btn btn-success btn-sm ml-lg-1"> <i class="fa-regular fa-eye"></i> View Details</a>
                             <a href="" class="btn btn-success btn-sm ml-lg-1"> <%=b.getPrice()%> <i class="fa-solid fa-manat-sign"></i></a>
                         </div>
                     </div>

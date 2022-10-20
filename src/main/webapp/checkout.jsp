@@ -94,38 +94,38 @@
                         <input type="hidden" value="${userobj.id}" name="id">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" value="${userobj.name}" name="username">
+                            <input type="text" class="form-control" id="inputEmail4" value="${userobj.name}" name="username" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" value="${userobj.email}" name="email">
+                            <input type="email" class="form-control" id="inputPassword4" value="${userobj.email}" name="email" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="inputEmail4" value="${userobj.phone}" name="phone">
+                            <input type="number" class="form-control" id="inputEmail4" value="${userobj.phone}" name="phone" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Adress</label>
-                            <input type="text" class="form-control" id="inputPassword4" name="address">
+                            <input type="text" class="form-control" id="inputPassword4" name="address" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">Landmark</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="landmark">
+                            <input type="text" class="form-control" id="inputEmail4" name="landmark" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputPassword4" name="city">
+                            <input type="text" class="form-control" id="inputPassword4" name="city" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputEmail4" class="form-label">State</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="state">
+                            <input type="text" class="form-control" id="inputEmail4" name="state" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4" class="form-label">Pin code</label>
-                            <input type="text" class="form-control" id="inputPassword4" name="pincode">
+                            <input type="text" class="form-control" id="inputPassword4" name="pincode" required>
                         </div>
 
 
